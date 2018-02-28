@@ -31,6 +31,9 @@
                                 <a href="classes.html">Classes</a>
                             </li>
 
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
@@ -102,7 +105,7 @@
     <div class="info">
         <strong>Final</strong><br>
 
-        <a href="source-class-Brick.Math.BigDecimal.html" class="open-source-code">Open source code</a>
+            <a href="source-class-Brick.Math.BigDecimal.html" class="open-source-code">Open source code</a>
         <br>
     </div>
 
@@ -428,7 +431,7 @@ The result has a scale of `$this-&gt;scale + $that-&gt;scale`.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_dividedBy">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#222-246">dividedBy</a>( <span> \BigNumber|\number|string <span class="property-name">$that</span> </span>, <span> int <span class="property-name">$scale</span> = <span class="php-keyword1">NULL</span></span>, <span> int <span class="property-name">$roundingMode</span> = <span class="php-quote">'0'</span></span> )</code>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#222-246">dividedBy</a>( <span> \BigNumber|\number|string <span class="property-name">$that</span> </span>, <span> int <span class="property-name">$scale</span> = <span class="php-keyword1">NULL</span></span>, <span> int <span class="property-name">$roundingMode</span> = <span class="php-num">0</span></span> )</code>
 
             <div class="description">
                 Returns the result of the division of this number by the given one, at the given scale.
@@ -809,7 +812,7 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
 
 
-<tr id="_sign">
+<tr id="_getSign">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -821,8 +824,8 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_sign">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#537-540">sign</a>( )</code>
+            <a class="anchor pull-right" href="#_getSign">#</a>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#537-540">getSign</a>( )</code>
 
             <div class="description">
                 {@inheritdoc}
@@ -841,7 +844,7 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
 
 
-<tr id="_unscaledValue">
+<tr id="_getUnscaledValue">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -853,8 +856,8 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_unscaledValue">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#545-548">unscaledValue</a>( )</code>
+            <a class="anchor pull-right" href="#_getUnscaledValue">#</a>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#545-548">getUnscaledValue</a>( )</code>
 
             <div class="description">
                 
@@ -873,7 +876,7 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
 
 
-<tr id="_scale">
+<tr id="_getScale">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -885,8 +888,8 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_scale">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#553-556">scale</a>( )</code>
+            <a class="anchor pull-right" href="#_getScale">#</a>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#553-556">getScale</a>( )</code>
 
             <div class="description">
                 
@@ -905,7 +908,7 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
 
 
-<tr id="_integral">
+<tr id="_getIntegral">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -917,8 +920,8 @@ The quotient has a scale of `0`, and the remainder has a scale of `max($this-&gt
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_integral">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#565-574">integral</a>( )</code>
+            <a class="anchor pull-right" href="#_getIntegral">#</a>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#565-574">getIntegral</a>( )</code>
 
             <div class="description">
                 Returns a string representing the integral part of this decimal number.
@@ -939,7 +942,7 @@ Example: `-123.456` =&gt; `-123`.
 
 
 
-<tr id="_fraction">
+<tr id="_getFraction">
 
     <td class="attributes col-md-1">
         <code class="keyword">
@@ -951,8 +954,8 @@ Example: `-123.456` =&gt; `-123`.
 
     <td class="name">
         <div>
-            <a class="anchor pull-right" href="#_fraction">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#585-594">fraction</a>( )</code>
+            <a class="anchor pull-right" href="#_getFraction">#</a>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#585-594">getFraction</a>( )</code>
 
             <div class="description">
                 Returns a string representing the fractional part of this decimal number.
@@ -1084,7 +1087,7 @@ Examples: `-123.456` =&gt; '456', `123` =&gt; ''.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_toScale">#</a>
-            <code><a href="source-class-Brick.Math.BigDecimal.html#632-639">toScale</a>( <span> int <span class="property-name">$scale</span> </span>, <span> int <span class="property-name">$roundingMode</span> = <span class="php-quote">'0'</span></span> )</code>
+            <code><a href="source-class-Brick.Math.BigDecimal.html#632-639">toScale</a>( <span> int <span class="property-name">$scale</span> </span>, <span> int <span class="property-name">$roundingMode</span> = <span class="php-num">0</span></span> )</code>
 
             <div class="description">
                 {@inheritdoc}
@@ -1219,7 +1222,7 @@ Examples: `-123.456` =&gt; '456', `123` =&gt; ''.
                         <code><a href="class-Brick.Math.BigNumber.html#_isNegativeOrZero">isNegativeOrZero()</a></code>, 
                         <code><a href="class-Brick.Math.BigNumber.html#_isPositive">isPositive()</a></code>, 
                         <code><a href="class-Brick.Math.BigNumber.html#_isPositiveOrZero">isPositiveOrZero()</a></code>, 
-                        <code><a href="class-Brick.Math.BigNumber.html#_sign">sign()</a></code>, 
+                        <code><a href="class-Brick.Math.BigNumber.html#_getSign">getSign()</a></code>, 
                         <code><a href="class-Brick.Math.BigNumber.html#_compareTo">compareTo()</a></code>, 
                         <code><a href="class-Brick.Math.BigNumber.html#_toBigInteger">toBigInteger()</a></code>, 
                         <code><a href="class-Brick.Math.BigNumber.html#_toBigDecimal">toBigDecimal()</a></code>, 

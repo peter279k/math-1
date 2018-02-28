@@ -31,6 +31,9 @@
                                 <a href="classes.html">Classes</a>
                             </li>
 
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
@@ -60,8 +63,8 @@
 </span><span class="l" id="line-4">
 </span><span class="l" id="line-5"><span class="php-keyword1">namespace</span> Brick\Math;
 </span><span class="l" id="line-6">
-</span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\Exception\ArithmeticException;
-</span><span class="l" id="line-8"><span class="php-keyword1">use</span> Brick\Math\Exception\DivisionByZeroException;
+</span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\Exception\DivisionByZeroException;
+</span><span class="l" id="line-8"><span class="php-keyword1">use</span> Brick\Math\Exception\MathException;
 </span><span class="l" id="line-9"><span class="php-keyword1">use</span> Brick\Math\Internal\Calculator;
 </span><span class="l" id="line-10">
 </span><span class="l" id="line-11"><span class="php-comment">/**
@@ -93,7 +96,7 @@
 </span></span><span class="l" id="line-37"><span class="php-comment">     * Protected constructor. Use a factory method to obtain an instance.
 </span></span><span class="l" id="line-38"><span class="php-comment">     *
 </span></span><span class="l" id="line-39"><span class="php-comment">     * @param string $value The unscaled value, validated.
-</span></span><span class="l" id="line-40"><span class="php-comment">     * @param int    $scale The scale, validated as a positive or zero integer.
+</span></span><span class="l" id="line-40"><span class="php-comment">     * @param int    $scale The scale, validated.
 </span></span><span class="l" id="line-41"><span class="php-comment">     */</span>
 </span><span class="l" id="line-42">    <span class="php-keyword1">protected</span> <span class="php-keyword1">function</span> __construct(string <span class="php-var">$value</span>, int <span class="php-var">$scale</span> = <span class="php-num">0</span>)
 </span><span class="l" id="line-43">    {
@@ -108,7 +111,7 @@
 </span></span><span class="l" id="line-52"><span class="php-comment">     *
 </span></span><span class="l" id="line-53"><span class="php-comment">     * @return BigDecimal
 </span></span><span class="l" id="line-54"><span class="php-comment">     *
-</span></span><span class="l" id="line-55"><span class="php-comment">     * @throws ArithmeticException If the value cannot be converted to a BigDecimal.
+</span></span><span class="l" id="line-55"><span class="php-comment">     * @throws MathException If the value cannot be converted to a BigDecimal.
 </span></span><span class="l" id="line-56"><span class="php-comment">     */</span>
 </span><span class="l" id="line-57">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> of(<span class="php-var">$value</span>) : BigNumber
 </span><span class="l" id="line-58">    {
@@ -193,7 +196,7 @@
 </span></span><span class="l" id="line-137"><span class="php-comment">     *
 </span></span><span class="l" id="line-138"><span class="php-comment">     * @return BigDecimal The result.
 </span></span><span class="l" id="line-139"><span class="php-comment">     *
-</span></span><span class="l" id="line-140"><span class="php-comment">     * @throws ArithmeticException If the number is not valid, or is not convertible to a BigDecimal.
+</span></span><span class="l" id="line-140"><span class="php-comment">     * @throws MathException If the number is not valid, or is not convertible to a BigDecimal.
 </span></span><span class="l" id="line-141"><span class="php-comment">     */</span>
 </span><span class="l" id="line-142">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> plus(<span class="php-var">$that</span>) : BigDecimal
 </span><span class="l" id="line-143">    {
@@ -220,7 +223,7 @@
 </span></span><span class="l" id="line-164"><span class="php-comment">     *
 </span></span><span class="l" id="line-165"><span class="php-comment">     * @return BigDecimal The result.
 </span></span><span class="l" id="line-166"><span class="php-comment">     *
-</span></span><span class="l" id="line-167"><span class="php-comment">     * @throws ArithmeticException If the number is not valid, or is not convertible to a BigDecimal.
+</span></span><span class="l" id="line-167"><span class="php-comment">     * @throws MathException If the number is not valid, or is not convertible to a BigDecimal.
 </span></span><span class="l" id="line-168"><span class="php-comment">     */</span>
 </span><span class="l" id="line-169">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> minus(<span class="php-var">$that</span>) : BigDecimal
 </span><span class="l" id="line-170">    {
@@ -247,7 +250,7 @@
 </span></span><span class="l" id="line-191"><span class="php-comment">     *
 </span></span><span class="l" id="line-192"><span class="php-comment">     * @return BigDecimal The result.
 </span></span><span class="l" id="line-193"><span class="php-comment">     *
-</span></span><span class="l" id="line-194"><span class="php-comment">     * @throws ArithmeticException If the multiplier is not a valid number, or is not convertible to a BigDecimal.
+</span></span><span class="l" id="line-194"><span class="php-comment">     * @throws MathException If the multiplier is not a valid number, or is not convertible to a BigDecimal.
 </span></span><span class="l" id="line-195"><span class="php-comment">     */</span>
 </span><span class="l" id="line-196">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> multipliedBy(<span class="php-var">$that</span>) : BigDecimal
 </span><span class="l" id="line-197">    {
@@ -273,7 +276,7 @@
 </span></span><span class="l" id="line-217"><span class="php-comment">     * @return BigDecimal
 </span></span><span class="l" id="line-218"><span class="php-comment">     *
 </span></span><span class="l" id="line-219"><span class="php-comment">     * @throws \InvalidArgumentException If the scale or rounding mode is invalid.
-</span></span><span class="l" id="line-220"><span class="php-comment">     * @throws ArithmeticException       If the number is invalid, is zero, or rounding was necessary.
+</span></span><span class="l" id="line-220"><span class="php-comment">     * @throws MathException             If the number is invalid, is zero, or rounding was necessary.
 </span></span><span class="l" id="line-221"><span class="php-comment">     */</span>
 </span><span class="l" id="line-222">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> dividedBy(<span class="php-var">$that</span>, int <span class="php-var">$scale</span> = <span class="php-keyword1">null</span>, int <span class="php-var">$roundingMode</span> = RoundingMode::UNNECESSARY) : BigDecimal
 </span><span class="l" id="line-223">    {
@@ -310,8 +313,8 @@
 </span></span><span class="l" id="line-254"><span class="php-comment">     *
 </span></span><span class="l" id="line-255"><span class="php-comment">     * @return BigDecimal The result.
 </span></span><span class="l" id="line-256"><span class="php-comment">     *
-</span></span><span class="l" id="line-257"><span class="php-comment">     * @throws ArithmeticException If the divisor is not a valid number, is not convertible to a BigDecimal, is zero,
-</span></span><span class="l" id="line-258"><span class="php-comment">     *                             or the result yields an infinite number of digits.
+</span></span><span class="l" id="line-257"><span class="php-comment">     * @throws MathException If the divisor is not a valid number, is not convertible to a BigDecimal, is zero,
+</span></span><span class="l" id="line-258"><span class="php-comment">     *                       or the result yields an infinite number of digits.
 </span></span><span class="l" id="line-259"><span class="php-comment">     */</span>
 </span><span class="l" id="line-260">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> exactlyDividedBy(<span class="php-var">$that</span>) : BigDecimal
 </span><span class="l" id="line-261">    {
@@ -385,7 +388,7 @@
 </span></span><span class="l" id="line-329"><span class="php-comment">     *
 </span></span><span class="l" id="line-330"><span class="php-comment">     * @return BigDecimal The quotient.
 </span></span><span class="l" id="line-331"><span class="php-comment">     *
-</span></span><span class="l" id="line-332"><span class="php-comment">     * @throws ArithmeticException If the divisor is not a valid decimal number, or is zero.
+</span></span><span class="l" id="line-332"><span class="php-comment">     * @throws MathException If the divisor is not a valid decimal number, or is zero.
 </span></span><span class="l" id="line-333"><span class="php-comment">     */</span>
 </span><span class="l" id="line-334">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> quotient(<span class="php-var">$that</span>) : BigDecimal
 </span><span class="l" id="line-335">    {
@@ -412,7 +415,7 @@
 </span></span><span class="l" id="line-356"><span class="php-comment">     *
 </span></span><span class="l" id="line-357"><span class="php-comment">     * @return BigDecimal The remainder.
 </span></span><span class="l" id="line-358"><span class="php-comment">     *
-</span></span><span class="l" id="line-359"><span class="php-comment">     * @throws ArithmeticException If the divisor is not a valid decimal number, or is zero.
+</span></span><span class="l" id="line-359"><span class="php-comment">     * @throws MathException If the divisor is not a valid decimal number, or is zero.
 </span></span><span class="l" id="line-360"><span class="php-comment">     */</span>
 </span><span class="l" id="line-361">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> remainder(<span class="php-var">$that</span>) : BigDecimal
 </span><span class="l" id="line-362">    {
@@ -441,7 +444,7 @@
 </span></span><span class="l" id="line-385"><span class="php-comment">     *
 </span></span><span class="l" id="line-386"><span class="php-comment">     * @return BigDecimal[] An array containing the quotient and the remainder.
 </span></span><span class="l" id="line-387"><span class="php-comment">     *
-</span></span><span class="l" id="line-388"><span class="php-comment">     * @throws ArithmeticException If the divisor is not a valid decimal number, or is zero.
+</span></span><span class="l" id="line-388"><span class="php-comment">     * @throws MathException If the divisor is not a valid decimal number, or is zero.
 </span></span><span class="l" id="line-389"><span class="php-comment">     */</span>
 </span><span class="l" id="line-390">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> quotientAndRemainder(<span class="php-var">$that</span>) : <span class="php-keyword1">array</span>
 </span><span class="l" id="line-391">    {
@@ -454,7 +457,7 @@
 </span><span class="l" id="line-398">        <span class="php-var">$p</span> = <span class="php-var">$this</span>-&gt;valueWithMinScale(<span class="php-var">$that</span>-&gt;scale);
 </span><span class="l" id="line-399">        <span class="php-var">$q</span> = <span class="php-var">$that</span>-&gt;valueWithMinScale(<span class="php-var">$this</span>-&gt;scale);
 </span><span class="l" id="line-400">
-</span><span class="l" id="line-401">        <span class="php-keyword1">list</span> (<span class="php-var">$quotient</span>, <span class="php-var">$remainder</span>) = Calculator::get()-&gt;divQR(<span class="php-var">$p</span>, <span class="php-var">$q</span>);
+</span><span class="l" id="line-401">        [<span class="php-var">$quotient</span>, <span class="php-var">$remainder</span>] = Calculator::get()-&gt;divQR(<span class="php-var">$p</span>, <span class="php-var">$q</span>);
 </span><span class="l" id="line-402">
 </span><span class="l" id="line-403">        <span class="php-var">$scale</span> = <span class="php-var">$this</span>-&gt;scale &gt; <span class="php-var">$that</span>-&gt;scale ? <span class="php-var">$this</span>-&gt;scale : <span class="php-var">$that</span>-&gt;scale;
 </span><span class="l" id="line-404">
@@ -590,7 +593,7 @@
 </span><span class="l" id="line-534">    <span class="php-comment">/**
 </span></span><span class="l" id="line-535"><span class="php-comment">     * {@inheritdoc}
 </span></span><span class="l" id="line-536"><span class="php-comment">     */</span>
-</span><span class="l" id="line-537">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sign() : int
+</span><span class="l" id="line-537">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getSign() : int
 </span><span class="l" id="line-538">    {
 </span><span class="l" id="line-539">        <span class="php-keyword1">return</span> (<span class="php-var">$this</span>-&gt;value === <span class="php-quote">'0'</span>) ? <span class="php-num">0</span> : ((<span class="php-var">$this</span>-&gt;value[<span class="php-num">0</span>] === <span class="php-quote">'-'</span>) ? -<span class="php-num">1</span> : <span class="php-num">1</span>);
 </span><span class="l" id="line-540">    }
@@ -598,7 +601,7 @@
 </span><span class="l" id="line-542">    <span class="php-comment">/**
 </span></span><span class="l" id="line-543"><span class="php-comment">     * @return BigInteger
 </span></span><span class="l" id="line-544"><span class="php-comment">     */</span>
-</span><span class="l" id="line-545">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unscaledValue() : BigInteger
+</span><span class="l" id="line-545">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getUnscaledValue() : BigInteger
 </span><span class="l" id="line-546">    {
 </span><span class="l" id="line-547">        <span class="php-keyword1">return</span> BigInteger::create(<span class="php-var">$this</span>-&gt;value);
 </span><span class="l" id="line-548">    }
@@ -606,7 +609,7 @@
 </span><span class="l" id="line-550">    <span class="php-comment">/**
 </span></span><span class="l" id="line-551"><span class="php-comment">     * @return int
 </span></span><span class="l" id="line-552"><span class="php-comment">     */</span>
-</span><span class="l" id="line-553">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> scale() : int
+</span><span class="l" id="line-553">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getScale() : int
 </span><span class="l" id="line-554">    {
 </span><span class="l" id="line-555">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;scale;
 </span><span class="l" id="line-556">    }
@@ -618,7 +621,7 @@
 </span></span><span class="l" id="line-562"><span class="php-comment">     *
 </span></span><span class="l" id="line-563"><span class="php-comment">     * @return string
 </span></span><span class="l" id="line-564"><span class="php-comment">     */</span>
-</span><span class="l" id="line-565">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> integral() : string
+</span><span class="l" id="line-565">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getIntegral() : string
 </span><span class="l" id="line-566">    {
 </span><span class="l" id="line-567">        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;scale === <span class="php-num">0</span>) {
 </span><span class="l" id="line-568">            <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;value;
@@ -638,7 +641,7 @@
 </span></span><span class="l" id="line-582"><span class="php-comment">     *
 </span></span><span class="l" id="line-583"><span class="php-comment">     * @return string
 </span></span><span class="l" id="line-584"><span class="php-comment">     */</span>
-</span><span class="l" id="line-585">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> fraction() : string
+</span><span class="l" id="line-585">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getFraction() : string
 </span><span class="l" id="line-586">    {
 </span><span class="l" id="line-587">        <span class="php-keyword1">if</span> (<span class="php-var">$this</span>-&gt;scale === <span class="php-num">0</span>) {
 </span><span class="l" id="line-588">            <span class="php-keyword1">return</span> <span class="php-quote">''</span>;
@@ -753,7 +756,7 @@
 </span><span class="l" id="line-697">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \LogicException(<span class="php-quote">'unserialize() is an internal function, it must not be called directly.'</span>);
 </span><span class="l" id="line-698">        }
 </span><span class="l" id="line-699">
-</span><span class="l" id="line-700">        <span class="php-keyword1">list</span> (<span class="php-var">$value</span>, <span class="php-var">$scale</span>) = <span class="php-keyword2">explode</span>(<span class="php-quote">':'</span>, <span class="php-var">$value</span>);
+</span><span class="l" id="line-700">        [<span class="php-var">$value</span>, <span class="php-var">$scale</span>] = <span class="php-keyword2">explode</span>(<span class="php-quote">':'</span>, <span class="php-var">$value</span>);
 </span><span class="l" id="line-701">
 </span><span class="l" id="line-702">        <span class="php-var">$this</span>-&gt;value = <span class="php-var">$value</span>;
 </span><span class="l" id="line-703">        <span class="php-var">$this</span>-&gt;scale = (int) <span class="php-var">$scale</span>;

@@ -31,6 +31,9 @@
                                 <a href="classes.html">Classes</a>
                             </li>
 
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
@@ -60,8 +63,8 @@
 </span><span class="l" id="line-4">
 </span><span class="l" id="line-5"><span class="php-keyword1">namespace</span> Brick\Math;
 </span><span class="l" id="line-6">
-</span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\Exception\ArithmeticException;
-</span><span class="l" id="line-8"><span class="php-keyword1">use</span> Brick\Math\Exception\DivisionByZeroException;
+</span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\Exception\DivisionByZeroException;
+</span><span class="l" id="line-8"><span class="php-keyword1">use</span> Brick\Math\Exception\MathException;
 </span><span class="l" id="line-9"><span class="php-keyword1">use</span> Brick\Math\Exception\NumberFormatException;
 </span><span class="l" id="line-10"><span class="php-keyword1">use</span> Brick\Math\Exception\RoundingNecessaryException;
 </span><span class="l" id="line-11">
@@ -180,7 +183,7 @@
 </span></span><span class="l" id="line-124"><span class="php-comment">     * @return static The minimum value.
 </span></span><span class="l" id="line-125"><span class="php-comment">     *
 </span></span><span class="l" id="line-126"><span class="php-comment">     * @throws \InvalidArgumentException If no values are given.
-</span></span><span class="l" id="line-127"><span class="php-comment">     * @throws ArithmeticException       If an argument is not valid.
+</span></span><span class="l" id="line-127"><span class="php-comment">     * @throws MathException             If an argument is not valid.
 </span></span><span class="l" id="line-128"><span class="php-comment">     */</span>
 </span><span class="l" id="line-129">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">min</span>(...<span class="php-var">$values</span>) : BigNumber
 </span><span class="l" id="line-130">    {
@@ -210,7 +213,7 @@
 </span></span><span class="l" id="line-154"><span class="php-comment">     * @return static The maximum value.
 </span></span><span class="l" id="line-155"><span class="php-comment">     *
 </span></span><span class="l" id="line-156"><span class="php-comment">     * @throws \InvalidArgumentException If no values are given.
-</span></span><span class="l" id="line-157"><span class="php-comment">     * @throws ArithmeticException       If an argument is not valid.
+</span></span><span class="l" id="line-157"><span class="php-comment">     * @throws MathException             If an argument is not valid.
 </span></span><span class="l" id="line-158"><span class="php-comment">     */</span>
 </span><span class="l" id="line-159">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">max</span>(...<span class="php-var">$values</span>) : BigNumber
 </span><span class="l" id="line-160">    {
@@ -326,7 +329,7 @@
 </span></span><span class="l" id="line-270"><span class="php-comment">     */</span>
 </span><span class="l" id="line-271">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isZero() : bool
 </span><span class="l" id="line-272">    {
-</span><span class="l" id="line-273">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;sign() === <span class="php-num">0</span>;
+</span><span class="l" id="line-273">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;getSign() === <span class="php-num">0</span>;
 </span><span class="l" id="line-274">    }
 </span><span class="l" id="line-275">
 </span><span class="l" id="line-276">    <span class="php-comment">/**
@@ -336,7 +339,7 @@
 </span></span><span class="l" id="line-280"><span class="php-comment">     */</span>
 </span><span class="l" id="line-281">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isNegative() : bool
 </span><span class="l" id="line-282">    {
-</span><span class="l" id="line-283">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;sign() &lt; <span class="php-num">0</span>;
+</span><span class="l" id="line-283">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;getSign() &lt; <span class="php-num">0</span>;
 </span><span class="l" id="line-284">    }
 </span><span class="l" id="line-285">
 </span><span class="l" id="line-286">    <span class="php-comment">/**
@@ -346,7 +349,7 @@
 </span></span><span class="l" id="line-290"><span class="php-comment">     */</span>
 </span><span class="l" id="line-291">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isNegativeOrZero() : bool
 </span><span class="l" id="line-292">    {
-</span><span class="l" id="line-293">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;sign() &lt;= <span class="php-num">0</span>;
+</span><span class="l" id="line-293">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;getSign() &lt;= <span class="php-num">0</span>;
 </span><span class="l" id="line-294">    }
 </span><span class="l" id="line-295">
 </span><span class="l" id="line-296">    <span class="php-comment">/**
@@ -356,7 +359,7 @@
 </span></span><span class="l" id="line-300"><span class="php-comment">     */</span>
 </span><span class="l" id="line-301">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isPositive() : bool
 </span><span class="l" id="line-302">    {
-</span><span class="l" id="line-303">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;sign() &gt; <span class="php-num">0</span>;
+</span><span class="l" id="line-303">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;getSign() &gt; <span class="php-num">0</span>;
 </span><span class="l" id="line-304">    }
 </span><span class="l" id="line-305">
 </span><span class="l" id="line-306">    <span class="php-comment">/**
@@ -366,7 +369,7 @@
 </span></span><span class="l" id="line-310"><span class="php-comment">     */</span>
 </span><span class="l" id="line-311">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isPositiveOrZero() : bool
 </span><span class="l" id="line-312">    {
-</span><span class="l" id="line-313">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;sign() &gt;= <span class="php-num">0</span>;
+</span><span class="l" id="line-313">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;getSign() &gt;= <span class="php-num">0</span>;
 </span><span class="l" id="line-314">    }
 </span><span class="l" id="line-315">
 </span><span class="l" id="line-316">    <span class="php-comment">/**
@@ -374,7 +377,7 @@
 </span></span><span class="l" id="line-318"><span class="php-comment">     *
 </span></span><span class="l" id="line-319"><span class="php-comment">     * @return int -1 if the number is negative, 0 if zero, 1 if positive.
 </span></span><span class="l" id="line-320"><span class="php-comment">     */</span>
-</span><span class="l" id="line-321">    <span class="php-keyword1">abstract</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sign() : int;
+</span><span class="l" id="line-321">    <span class="php-keyword1">abstract</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getSign() : int;
 </span><span class="l" id="line-322">
 </span><span class="l" id="line-323">    <span class="php-comment">/**
 </span></span><span class="l" id="line-324"><span class="php-comment">     * Compares this number to the given one.
@@ -383,7 +386,7 @@
 </span></span><span class="l" id="line-327"><span class="php-comment">     *
 </span></span><span class="l" id="line-328"><span class="php-comment">     * @return int [-1,0,1] If `$this` is lower than, equal to, or greater than `$that`.
 </span></span><span class="l" id="line-329"><span class="php-comment">     *
-</span></span><span class="l" id="line-330"><span class="php-comment">     * @throws ArithmeticException If the number is not valid.
+</span></span><span class="l" id="line-330"><span class="php-comment">     * @throws MathException If the number is not valid.
 </span></span><span class="l" id="line-331"><span class="php-comment">     */</span>
 </span><span class="l" id="line-332">    <span class="php-keyword1">abstract</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> compareTo(<span class="php-var">$that</span>) : int;
 </span><span class="l" id="line-333">
@@ -433,7 +436,7 @@
 </span></span><span class="l" id="line-377"><span class="php-comment">     *
 </span></span><span class="l" id="line-378"><span class="php-comment">     * @return int The converted value.
 </span></span><span class="l" id="line-379"><span class="php-comment">     *
-</span></span><span class="l" id="line-380"><span class="php-comment">     * @throws ArithmeticException If this number cannot be exactly converted to a native integer.
+</span></span><span class="l" id="line-380"><span class="php-comment">     * @throws MathException If this number cannot be exactly converted to a native integer.
 </span></span><span class="l" id="line-381"><span class="php-comment">     */</span>
 </span><span class="l" id="line-382">    <span class="php-keyword1">abstract</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toInt() : int;
 </span><span class="l" id="line-383">

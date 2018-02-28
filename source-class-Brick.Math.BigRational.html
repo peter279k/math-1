@@ -31,6 +31,9 @@
                                 <a href="classes.html">Classes</a>
                             </li>
 
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
@@ -60,8 +63,8 @@
 </span><span class="l" id="line-4">
 </span><span class="l" id="line-5"><span class="php-keyword1">namespace</span> Brick\Math;
 </span><span class="l" id="line-6">
-</span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\Exception\ArithmeticException;
-</span><span class="l" id="line-8"><span class="php-keyword1">use</span> Brick\Math\Exception\DivisionByZeroException;
+</span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\Exception\DivisionByZeroException;
+</span><span class="l" id="line-8"><span class="php-keyword1">use</span> Brick\Math\Exception\MathException;
 </span><span class="l" id="line-9"><span class="php-keyword1">use</span> Brick\Math\Exception\NumberFormatException;
 </span><span class="l" id="line-10"><span class="php-keyword1">use</span> Brick\Math\Exception\RoundingNecessaryException;
 </span><span class="l" id="line-11">
@@ -119,7 +122,7 @@
 </span></span><span class="l" id="line-63"><span class="php-comment">     *
 </span></span><span class="l" id="line-64"><span class="php-comment">     * @return BigRational
 </span></span><span class="l" id="line-65"><span class="php-comment">     *
-</span></span><span class="l" id="line-66"><span class="php-comment">     * @throws ArithmeticException If the value cannot be converted to a BigRational.
+</span></span><span class="l" id="line-66"><span class="php-comment">     * @throws MathException If the value cannot be converted to a BigRational.
 </span></span><span class="l" id="line-67"><span class="php-comment">     */</span>
 </span><span class="l" id="line-68">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> of(<span class="php-var">$value</span>) : BigNumber
 </span><span class="l" id="line-69">    {
@@ -200,7 +203,7 @@
 </span><span class="l" id="line-144">    <span class="php-comment">/**
 </span></span><span class="l" id="line-145"><span class="php-comment">     * @return BigInteger
 </span></span><span class="l" id="line-146"><span class="php-comment">     */</span>
-</span><span class="l" id="line-147">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> numerator() : BigInteger
+</span><span class="l" id="line-147">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getNumerator() : BigInteger
 </span><span class="l" id="line-148">    {
 </span><span class="l" id="line-149">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;numerator;
 </span><span class="l" id="line-150">    }
@@ -208,7 +211,7 @@
 </span><span class="l" id="line-152">    <span class="php-comment">/**
 </span></span><span class="l" id="line-153"><span class="php-comment">     * @return BigInteger
 </span></span><span class="l" id="line-154"><span class="php-comment">     */</span>
-</span><span class="l" id="line-155">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> denominator() : BigInteger
+</span><span class="l" id="line-155">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getDenominator() : BigInteger
 </span><span class="l" id="line-156">    {
 </span><span class="l" id="line-157">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;denominator;
 </span><span class="l" id="line-158">    }
@@ -250,7 +253,7 @@
 </span></span><span class="l" id="line-194"><span class="php-comment">     *
 </span></span><span class="l" id="line-195"><span class="php-comment">     * @return BigRational The result.
 </span></span><span class="l" id="line-196"><span class="php-comment">     *
-</span></span><span class="l" id="line-197"><span class="php-comment">     * @throws ArithmeticException If the number is not valid.
+</span></span><span class="l" id="line-197"><span class="php-comment">     * @throws MathException If the number is not valid.
 </span></span><span class="l" id="line-198"><span class="php-comment">     */</span>
 </span><span class="l" id="line-199">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> plus(<span class="php-var">$that</span>) : BigRational
 </span><span class="l" id="line-200">    {
@@ -270,7 +273,7 @@
 </span></span><span class="l" id="line-214"><span class="php-comment">     *
 </span></span><span class="l" id="line-215"><span class="php-comment">     * @return BigRational The result.
 </span></span><span class="l" id="line-216"><span class="php-comment">     *
-</span></span><span class="l" id="line-217"><span class="php-comment">     * @throws ArithmeticException If the number is not valid.
+</span></span><span class="l" id="line-217"><span class="php-comment">     * @throws MathException If the number is not valid.
 </span></span><span class="l" id="line-218"><span class="php-comment">     */</span>
 </span><span class="l" id="line-219">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> minus(<span class="php-var">$that</span>) : BigRational
 </span><span class="l" id="line-220">    {
@@ -290,7 +293,7 @@
 </span></span><span class="l" id="line-234"><span class="php-comment">     *
 </span></span><span class="l" id="line-235"><span class="php-comment">     * @return BigRational The result.
 </span></span><span class="l" id="line-236"><span class="php-comment">     *
-</span></span><span class="l" id="line-237"><span class="php-comment">     * @throws ArithmeticException If the multiplier is not a valid number.
+</span></span><span class="l" id="line-237"><span class="php-comment">     * @throws MathException If the multiplier is not a valid number.
 </span></span><span class="l" id="line-238"><span class="php-comment">     */</span>
 </span><span class="l" id="line-239">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> multipliedBy(<span class="php-var">$that</span>) : BigRational
 </span><span class="l" id="line-240">    {
@@ -309,7 +312,7 @@
 </span></span><span class="l" id="line-253"><span class="php-comment">     *
 </span></span><span class="l" id="line-254"><span class="php-comment">     * @return BigRational The result.
 </span></span><span class="l" id="line-255"><span class="php-comment">     *
-</span></span><span class="l" id="line-256"><span class="php-comment">     * @throws ArithmeticException If the divisor is not a valid number, or is zero.
+</span></span><span class="l" id="line-256"><span class="php-comment">     * @throws MathException If the divisor is not a valid number, or is zero.
 </span></span><span class="l" id="line-257"><span class="php-comment">     */</span>
 </span><span class="l" id="line-258">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> dividedBy(<span class="php-var">$that</span>) : BigRational
 </span><span class="l" id="line-259">    {
@@ -403,15 +406,15 @@
 </span></span><span class="l" id="line-347"><span class="php-comment">     */</span>
 </span><span class="l" id="line-348">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> compareTo(<span class="php-var">$that</span>) : int
 </span><span class="l" id="line-349">    {
-</span><span class="l" id="line-350">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;minus(<span class="php-var">$that</span>)-&gt;sign();
+</span><span class="l" id="line-350">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;minus(<span class="php-var">$that</span>)-&gt;getSign();
 </span><span class="l" id="line-351">    }
 </span><span class="l" id="line-352">
 </span><span class="l" id="line-353">    <span class="php-comment">/**
 </span></span><span class="l" id="line-354"><span class="php-comment">     * {@inheritdoc}
 </span></span><span class="l" id="line-355"><span class="php-comment">     */</span>
-</span><span class="l" id="line-356">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> sign() : int
+</span><span class="l" id="line-356">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getSign() : int
 </span><span class="l" id="line-357">    {
-</span><span class="l" id="line-358">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;numerator-&gt;sign();
+</span><span class="l" id="line-358">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;numerator-&gt;getSign();
 </span><span class="l" id="line-359">    }
 </span><span class="l" id="line-360">
 </span><span class="l" id="line-361">    <span class="php-comment">/**
@@ -512,7 +515,7 @@
 </span><span class="l" id="line-456">            <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> \LogicException(<span class="php-quote">'unserialize() is an internal function, it must not be called directly.'</span>);
 </span><span class="l" id="line-457">        }
 </span><span class="l" id="line-458">
-</span><span class="l" id="line-459">        <span class="php-keyword1">list</span> (<span class="php-var">$numerator</span>, <span class="php-var">$denominator</span>) = <span class="php-keyword2">explode</span>(<span class="php-quote">'/'</span>, <span class="php-var">$value</span>);
+</span><span class="l" id="line-459">        [<span class="php-var">$numerator</span>, <span class="php-var">$denominator</span>] = <span class="php-keyword2">explode</span>(<span class="php-quote">'/'</span>, <span class="php-var">$value</span>);
 </span><span class="l" id="line-460">
 </span><span class="l" id="line-461">        <span class="php-var">$this</span>-&gt;numerator   = BigInteger::of(<span class="php-var">$numerator</span>);
 </span><span class="l" id="line-462">        <span class="php-var">$this</span>-&gt;denominator = BigInteger::of(<span class="php-var">$denominator</span>);

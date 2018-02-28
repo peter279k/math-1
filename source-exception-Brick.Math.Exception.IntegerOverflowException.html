@@ -31,6 +31,9 @@
                                 <a href="classes.html">Classes</a>
                             </li>
 
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
 
 
 
@@ -63,20 +66,20 @@
 </span><span class="l" id="line-7"><span class="php-keyword1">use</span> Brick\Math\BigInteger;
 </span><span class="l" id="line-8">
 </span><span class="l" id="line-9"><span class="php-comment">/**
-</span></span><span class="l" id="line-10"><span class="php-comment"> * Exception thrown when arithmetic operations fail.
+</span></span><span class="l" id="line-10"><span class="php-comment"> * Exception thrown when an integer overflow occurs.
 </span></span><span class="l" id="line-11"><span class="php-comment"> */</span>
-</span><span class="l" id="line-12"><span class="php-keyword1">class</span> ArithmeticException <span class="php-keyword1">extends</span> \RuntimeException
+</span><span class="l" id="line-12"><span class="php-keyword1">class</span> IntegerOverflowException <span class="php-keyword1">extends</span> MathException
 </span><span class="l" id="line-13">{
 </span><span class="l" id="line-14">    <span class="php-comment">/**
 </span></span><span class="l" id="line-15"><span class="php-comment">     * @param BigInteger $value
 </span></span><span class="l" id="line-16"><span class="php-comment">     *
-</span></span><span class="l" id="line-17"><span class="php-comment">     * @return ArithmeticException
+</span></span><span class="l" id="line-17"><span class="php-comment">     * @return IntegerOverflowException
 </span></span><span class="l" id="line-18"><span class="php-comment">     */</span>
-</span><span class="l" id="line-19">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> integerOverflow(BigInteger <span class="php-var">$value</span>) : ArithmeticException
+</span><span class="l" id="line-19">    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> toIntOverflow(BigInteger <span class="php-var">$value</span>) : IntegerOverflowException
 </span><span class="l" id="line-20">    {
 </span><span class="l" id="line-21">        <span class="php-var">$message</span> = <span class="php-quote">'%s is out of range %d to %d and cannot be represented as an integer.'</span>;
 </span><span class="l" id="line-22">
-</span><span class="l" id="line-23">        <span class="php-keyword1">return</span> <span class="php-keyword1">new</span> self(<span class="php-keyword2">sprintf</span>(<span class="php-var">$message</span>, (string) <span class="php-var">$value</span>, ~PHP_INT_MAX, PHP_INT_MAX));
+</span><span class="l" id="line-23">        <span class="php-keyword1">return</span> <span class="php-keyword1">new</span> self(<span class="php-keyword2">sprintf</span>(<span class="php-var">$message</span>, (string) <span class="php-var">$value</span>, PHP_INT_MIN, PHP_INT_MAX));
 </span><span class="l" id="line-24">    }
 </span><span class="l" id="line-25">}
 </span><span class="l" id="line-26"></span><br></code></pre>
