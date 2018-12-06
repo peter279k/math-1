@@ -219,32 +219,24 @@ class NativeCalculator extends Calculator
             return $a;
         }
 
-        $shift = 2;
+        $c = '32768';
+        $g = '32768';
 
-        $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
-
-        while ($shiftRightNumber !== '0' && $shiftRightNumber !== $a) {
-            $shift += 2;
-            $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
-        }
-        $shift -= 2;
-
-        $result = 0;
-        while ($shift >= 0) {
-            $result = $this->mul((string) $result, '2');
-            $candiateResult = $this->add($result, '1');
-
-            $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
-            $checkSqrtNumber = $this->cmp($this->mul($candiateResult, $candiateResult), $shiftRightNumber);
-
-            if ($checkSqrtNumber !== 1) {
-                $result = $candiateResult;
+        for (;;) {
+            $mulNumber = $this->mul($g, $g);
+            $checkNumber = $this->cmp($mulNumber, $a);
+            if ($checkNumber === 1) {
+                $g = $this->xor($g, $c);
             }
 
-            $shift -= 2;
-        }
+            $c = $this->div($c, '2');
 
-        return $result;
+            if ($c === '0') {
+                return $g;
+            }
+
+            $g = $this->or($g, $c);
+        }
     }
 
     /**
