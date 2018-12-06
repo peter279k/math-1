@@ -221,11 +221,11 @@ class NativeCalculator extends Calculator
 
         $shift = 2;
 
-        $shiftRightNumber = $this->divQ($a, $this->pow('2', (string) $shift));
+        $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
 
         while ($shiftRightNumber !== '0' && $shiftRightNumber !== $a) {
             $shift += 2;
-            $shiftRightNumber = $this->divQ($a, $this->pow('2', (string) $shift));
+            $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
         }
         $shift -= 2;
 
@@ -234,7 +234,7 @@ class NativeCalculator extends Calculator
             $result = $this->mul($result, '2');
             $candiateResult = $this->add($result, '1');
 
-            $shiftRightNumber = $this->divQ($a, $this->pow('2', (string) $shift));
+            $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
             $checkSqrtNumber = $this->cmp($this->mul($candiateResult, $candiateResult), $shiftRightNumber);
 
             if ($checkSqrtNumber !== 1) {
