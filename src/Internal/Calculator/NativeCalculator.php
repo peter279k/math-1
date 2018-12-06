@@ -215,23 +215,23 @@ class NativeCalculator extends Calculator
      */
     public function sqrt(string $a) : string
     {
-        $x = $a;
-        $pre = '0';
-        while (true) {
-            $checkedSqrtNumber = $this->abs($this->sub($a, $pre));
-            $cmpResult = $this->cmp($checkedSqrtNumber, '0');
-
-            if ($cmpResult === 0 || $cmpResult === -1) {
-                break;
-            }
-
-            $pre = $a;
-            $divResultQ = $this->divQ($x, $a);
-            $addResult = $this->add($a, $divResultQ);
-            $a = $this->divQ($addResult, '2');
+        if ($a < 2) {
+            return $a;
         }
 
-        return $a;
+        $shiftRightNumber = $this->divQ($a, '4');
+        $shiftLeftNumber = $this->mul($this->sqrt($shiftRightNumber), '2');
+
+        $smallCandiate = $shiftLeftNumber;
+        $largeCandiate = $this->add($smallCandiate, '1');
+
+        $checkSqrtNumber = $this->cmp($this->mul($largeCandiate, $largeCandiate), $a);
+
+        if ($checkSqrtNumber === 1) {
+            return $smallCandiate;
+        } else {
+            return $largeCandiate;
+        }
     }
 
     /**
