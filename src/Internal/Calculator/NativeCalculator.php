@@ -219,19 +219,32 @@ class NativeCalculator extends Calculator
             return $a;
         }
 
-        $shiftRightNumber = $this->divQ($a, '4');
-        $shiftLeftNumber = $this->mul($this->sqrt($shiftRightNumber), '2');
+        $shift = 2;
 
-        $smallCandiate = $shiftLeftNumber;
-        $largeCandiate = $this->add($smallCandiate, '1');
+        $shiftRightNumber = $this->divQ($a, $this->pow('2', (string) $shift));
 
-        $checkSqrtNumber = $this->cmp($this->mul($largeCandiate, $largeCandiate), $a);
-
-        if ($checkSqrtNumber === 1) {
-            return $smallCandiate;
-        } else {
-            return $largeCandiate;
+        while ($shiftRightNumber !== '0' && $shiftRightNumber !== $a) {
+            $shift += 2;
+            $shiftRightNumber = $this->divQ($a, $this->pow('2', (string) $shift));
         }
+        $shift -= 2;
+
+        $result = 0;
+        while ($shift >= 0) {
+            $result = $this->mul($result, '2');
+            $candiateResult = $this->add($result, '1');
+
+            $shiftRightNumber = $this->divQ($a, $this->pow('2', (string) $shift));
+            $checkSqrtNumber = $this->cmp($this->mul($candiateResult, $candiateResult), $shiftRightNumber);
+
+            if ($checkSqrtNumber !== 1) {
+                $result = $candiateResult;
+            }
+
+            $shift -= 2;
+        }
+
+        return $result;
     }
 
     /**
