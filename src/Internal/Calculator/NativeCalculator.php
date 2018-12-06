@@ -222,7 +222,7 @@ class NativeCalculator extends Calculator
         $x = $a;
         $y = '1';
         while($this->cmp($x, $y) === 1) {
-            $x = $this->divQ($this->add($x, $y), 2);
+            $x = $this->divQ($this->add($x, $y), '2');
             $y = $this->divQ($a, $x);
         }
 
