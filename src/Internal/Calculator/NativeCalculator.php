@@ -229,7 +229,7 @@ class NativeCalculator extends Calculator
                 $g = $this->xor($g, $c);
             }
 
-            $c = $this->div($c, '2');
+            $c = $this->divQ($c, '2');
 
             if ($c === '0') {
                 return $g;
