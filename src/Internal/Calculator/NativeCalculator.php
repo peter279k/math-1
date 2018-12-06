@@ -219,24 +219,14 @@ class NativeCalculator extends Calculator
             return $a;
         }
 
-        $c = '32768';
-        $g = '32768';
-
-        for (;;) {
-            $mulNumber = $this->mul($g, $g);
-            $checkNumber = $this->cmp($mulNumber, $a);
-            if ($checkNumber === 1) {
-                $g = $this->xor($g, $c);
-            }
-
-            $c = $this->divQ($c, '2');
-
-            if ($c === '0') {
-                return $g;
-            }
-
-            $g = $this->or($g, $c);
+        $x = $a;
+        $y = '1';
+        while($this->cmp($x, $y) === 1) {
+            $x = $this->divQ($this->add($x, $y), 2);
+            $y = $this->divQ($a, $x);
         }
+
+        return $x;
     }
 
     /**
