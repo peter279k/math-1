@@ -231,7 +231,7 @@ class NativeCalculator extends Calculator
 
         $result = 0;
         while ($shift >= 0) {
-            $result = $this->mul($result, '2');
+            $result = $this->mul((string) $result, '2');
             $candiateResult = $this->add($result, '1');
 
             $shiftRightNumber = $this->divQ($a, $this->pow('2', $shift));
